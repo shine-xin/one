@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>河长通</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=e3ZohdqyB0RL98hFOiC29xqh"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-ui-router.js"></script>
+    <script type="text/javascript" src="js/ui-bootstrap-tpls-1.3.2.js"></script>
+
+</head>
+<body>
+    <div id="wrap">
+        <div id="header" class="container-fluid">
+                <nav class="navbar header-navBar">
+                    <div class="container-fluid">
+                        <div class="header-ba">
+                            <button type="button" class="navbar-toggle collapsed header-dropDown "
+                                    data-toggle="collapse"
+                                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand header-logo" ui-sref="index">
+                                <img src="./image/logo.png" alt="">
+                                <span>温州市河长通</span>
+                            </a>
+                        </div>
+                        <div class="collapse navbar-collapse header-navRight" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li><a class="active" ui-sref="index"><span class="iconfont icon-shouye1"></span>首页</a></li>
+                                <li><a  ui-sref="info"><span class="iconfont icon-iconbaifenbi"></span>河道信息</a></li>
+                                <li><a ui-sref="quality"><span class="iconfont icon-shui"></span>断面水质</a></li>
+                                <li><a ui-sref="rankingList"><span class="iconfont icon-paihang"></span>排行榜</a></li>
+                                <li><a><span class="iconfont icon-dengpao1"></span>水质标准</a></li>
+                                <li><a><span class="iconfont icon-jubao"></span>河道举报</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+        </div>
+        <div id="main">
+            <div ui-view="main"></div>
+        </div>
+        <div class="container-fluid" id="footer">
+            <div class="container">
+                    <div class="footerAddress fl">
+                        <p>联系方式</p>
+                        <p>地址:地址：温州市绣山路198号</p>
+                        <p>电话：0577-88222252（办公室）0577-89992297（数据中心）</p>
+                        <p>传真：0577-88270241　　投稿箱：news@wzsl.gov.cn</p>
+                    </div>
+                    <div class="footerInfo fl">
+                        <p>备案信息</p>
+                        <p>浙ICP备05000105</p>
+                        <p>CopyRight © 2016 www.wzsl.gov.cn.com, All Rights Reserved </p>
+                        <p>温州水利局版权所有 云知科技技术支持 </p>
+                    </div>
+                    <div class="footerIcon fl">
+                        <img src="image/red.png" alt="">
+                    </div>
+                </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/control.js"></script>
+<script type="text/javascript">
+    (function (doc,win){
+        var docEl=doc.documentElement;
+        var run=function () {
+            var clientW=docEl.clientWidth;
+            if(!clientW)return;
+            docEl.style.fontSize=32/320*clientW+'px';
+        };
+        if(!doc.addEventListener)return;
+        var resizeEvt='orientationchange' in win?'orientationchange':'resize';
+        win.addEventListener(resizeEvt,run,false);
+        doc.addEventListener('DOMContentLoaded',run,false);
+
+        $("img").addClass("img-responsive center-block");
+    })(document,window)
+</script>
+</html>
